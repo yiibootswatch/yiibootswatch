@@ -1,0 +1,14 @@
+2013/12/12 10:27:01 [error] [exception.CException] exception 'CException' with message 'The controller path "D:\xampp\htdocs\bwatch\work\protected\controllers\front" is not a valid directory.' in D:\xampp\htdocs\bwatch\yii\framework\web\CWebApplication.php:422
+Stack trace:
+#0 D:\xampp\htdocs\bwatch\yii\framework\base\CComponent.php(152): CWebApplication->setControllerPath('D:\xampp\htdocs...')
+#1 D:\xampp\htdocs\bwatch\work\protected\components\WebApplicationEndBehavior.php(39): CComponent->__set('controllerPath', 'D:\xampp\htdocs...')
+#2 D:\xampp\htdocs\bwatch\yii\framework\base\CComponent.php(561): WebApplicationEndBehavior->changeModulePaths(Object(CEvent))
+#3 D:\xampp\htdocs\bwatch\work\protected\components\WebApplicationEndBehavior.php(32): CComponent->raiseEvent('onModuleCreate', Object(CEvent))
+#4 D:\xampp\htdocs\bwatch\work\protected\components\WebApplicationEndBehavior.php(23): WebApplicationEndBehavior->onModuleCreate(Object(CEvent))
+#5 [internal function]: WebApplicationEndBehavior->runEnd('front')
+#6 D:\xampp\htdocs\bwatch\yii\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\bwatch\work\index.php(23): CComponent->__call('runEnd', Array)
+#8 D:\xampp\htdocs\bwatch\work\index.php(23): CWebApplication->runEnd('front')
+#9 {main}
+REQUEST_URI=/bwatch/work/index.php
+---

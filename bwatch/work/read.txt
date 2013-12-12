@@ -1,0 +1,6 @@
+Step1: Download Yii
+
+Step2: Create project using yii webapp through command prompt
+
+Step3: Configure the site using this url
+http://www.yiiframework.com/wiki/63/organize-directories-for-applications-with-front-end-and-back-end-using-webapplicationend-behavior/
