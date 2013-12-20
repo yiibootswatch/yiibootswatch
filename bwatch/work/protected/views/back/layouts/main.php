@@ -1,59 +1,106 @@
-<?php /* @var $this Controller */ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+<?php
+Yii::app()->clientScript->scriptMap = array(
+    'bootstrap.css' => false,
+    'bootstrap.min.css' => false,
+    'jquery.js' => false,
+    'bootstrap.min.js' => false,
+        //'bootstrap-yii.css' => false,
+        //'jquery-ui-bootstrap.css' => false,    
+        //'jquery-ui.min.js' => false,
+        //'jqui-tb-noconflict.js' => false,    
+        //'bootbox.min.js' => false,
+        //'notify.min.js' => false,
+);
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
+Yii::app()->clientscript
+        ->registerCssFile(Yii::app()->request->baseUrl . '/themes/font-awesome/css/font-awesome.min.css')
+        ->registerCssFile(Yii::app()->request->baseUrl . '/themes/assets/css/offcanvas.css')
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootswatch: Flatly</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">        
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="../bower_components/bootstrap/assets/js/html5shiv.js"></script>
+          <script src="../bower_components/bootstrap/assets/js/respond.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.css" media="screen" />
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">	  	
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="../" class="navbar-brand">Bootswatch</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="themes">
+                                <li><a tabindex="-1" href="">Default</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/amelia'); ?>">Amelia</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/cerulean'); ?>">Cerulean</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/cosmo'); ?>">Cosmo</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/cyborg'); ?>">Cyborg</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/flatly'); ?>">Flatly</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/journal'); ?>">Journal</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/readable'); ?>">Readable</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/simplex'); ?>">Simplex</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/slate'); ?>">Slate</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/spacelab'); ?>">Spacelab</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/united'); ?>">United</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../help/">Help</a>
+                        </li>
+                        <li>
+                            <a href="http://news.bootswatch.com">Blog</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="download">
+                                <li><a tabindex="-1" href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                                <li><a tabindex="-1" href="./bootstrap.css">bootstrap.css</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="./variables.less">variables.less</a></li>
+                                <li><a tabindex="-1" href="./bootswatch.less">bootswatch.less</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+                    </ul>
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-</head>
+                </div>
+            </div>
+        </div>   
+        <div class="container">
+            <?php echo $content; ?>
+            <!--            <hr>
+                            <footer>
+                                <p>&copy; Company 2013</p>
+                            </footer>-->
 
-<body>
-
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
-
-</body>
+        </div><!--/.container-->
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit">Example courtesy Martin Bean Ryan Fait.</p>
+            </div>
+        </div>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/jquery.min.js"></script>        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/toggle.js"></script>         
+    </body>
 </html>

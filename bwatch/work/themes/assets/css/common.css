@@ -1,0 +1,33 @@
+.form-horizontal .form-legend {
+	margin-bottom: 0px;
+	font-size: 15px;
+}
+.form-horizontal .form-actions {
+	margin-top: 15px;
+}
+.form-legend .alert  {
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.form-legend .alert-error p, .form-legend .alert-error li {
+	color: #E74C3C;
+}
+.form-legend .help-block {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.error .help-block, .error .control-label {
+    color: #E74C3C;
+}
+.error .form-control {
+    border-color: #E74C3C;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+span.required {
+    color: #E74C3C;
+}	
+.advanced-search-content, .search-form {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
