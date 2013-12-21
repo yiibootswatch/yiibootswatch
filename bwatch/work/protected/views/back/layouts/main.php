@@ -14,7 +14,7 @@ Yii::app()->clientScript->scriptMap = array(
 
 Yii::app()->clientscript
         ->registerCssFile(Yii::app()->request->baseUrl . '/themes/font-awesome/css/font-awesome.min.css')
-        ->registerCssFile(Yii::app()->request->baseUrl . '/themes/assets/css/offcanvas.css')
+        ->registerCssFile(Yii::app()->request->baseUrl . '/themes/assets/css/offcanvas.css')        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ Yii::app()->clientscript
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="themes">
-                                <li><a tabindex="-1" href="">Default</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/default'); ?>">Default</a></li>
                                 <li class="divider"></li>
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/amelia'); ?>">Amelia</a></li>
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/cerulean'); ?>">Cerulean</a></li>
@@ -58,6 +58,7 @@ Yii::app()->clientscript
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/slate'); ?>">Slate</a></li>
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/spacelab'); ?>">Spacelab</a></li>
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/united'); ?>">United</a></li>
+                                <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/yeti'); ?>">Yeti</a></li>
                             </ul>
                         </li>
                         <li>
@@ -86,19 +87,14 @@ Yii::app()->clientscript
                 </div>
             </div>
         </div>   
-        <div class="container">
-            <?php echo $content; ?>
-            <!--            <hr>
-                            <footer>
-                                <p>&copy; Company 2013</p>
-                            </footer>-->
-
-        </div><!--/.container-->
+       <div class="container">
+            <?php echo $content; ?>       
+        </div>
         <div id="footer">
             <div class="container">
                 <p class="muted credit">Example courtesy Martin Bean Ryan Fait.</p>
             </div>
-        </div>
+        </div>     
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/jquery.min.js"></script>        
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/bootstrap.min.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/assets/js/toggle.js"></script>         
