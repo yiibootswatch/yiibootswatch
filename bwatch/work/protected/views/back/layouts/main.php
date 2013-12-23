@@ -19,7 +19,7 @@ Yii::app()->clientscript
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bootswatch: Flatly</title>
+        <title>Bootswatch: Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">        
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +33,7 @@ Yii::app()->clientscript
         <div class="navbar navbar-default navbar-fixed-top">	  	
             <div class="container">
                 <div class="navbar-header">
-                    <a href="../" class="navbar-brand">Bootswatch</a>
+                    <a href="../" class="navbar-brand">Blog</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -42,6 +42,30 @@ Yii::app()->clientscript
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
+                        <li>
+                            <a href="<?php echo $this->createUrl('/'); ?>">Home</a>
+                        </li>                        
+                        <li>
+                            <a href="<?php echo $this->createUrl('/site/page/view/about'); ?>">About</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/site/contact'); ?>">Contact</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/blog/post/index'); ?>">Blog</a>
+                        </li>
+                        <?php if(Yii::app()->user->isGuest) { ?>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/site/login'); ?>">Login</a>
+                        </li>
+                        <?php } else if(!Yii::app()->user->isGuest) { ?>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/site/logout'); ?>">Logout (<?php echo Yii::app()->user->name ?>)</a>
+                        </li>
+                        <?php } ?>                                                                        
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="themes">
@@ -61,33 +85,12 @@ Yii::app()->clientscript
                                 <li><a tabindex="-1" href="<?php echo $this->createUrl('/site/index/mytheme/yeti'); ?>">Yeti</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="../help/">Help</a>
-                        </li>
-                        <li>
-                            <a href="http://news.bootswatch.com">Blog</a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="download">
-                                <li><a tabindex="-1" href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                                <li><a tabindex="-1" href="./bootstrap.css">bootstrap.css</a></li>
-                                <li class="divider"></li>
-                                <li><a tabindex="-1" href="./variables.less">variables.less</a></li>
-                                <li><a tabindex="-1" href="./bootswatch.less">bootswatch.less</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-                        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
                     </ul>
 
                 </div>
             </div>
         </div>   
-       <div class="container">
+       <div class="container">             
             <?php echo $content; ?>       
         </div>
         <div id="footer">
