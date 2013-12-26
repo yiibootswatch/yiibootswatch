@@ -11,7 +11,6 @@ Yii::app()->clientScript->scriptMap = array(
         //'bootbox.min.js' => false,
         //'notify.min.js' => false,
 );
-
 Yii::app()->clientscript
         ->registerCssFile(Yii::app()->request->baseUrl . '/themes/font-awesome/css/font-awesome.min.css')
         ->registerCssFile(Yii::app()->request->baseUrl . '/themes/assets/css/offcanvas.css')        
@@ -86,7 +85,6 @@ Yii::app()->clientscript
                             </ul>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </div>   
