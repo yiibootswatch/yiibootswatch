@@ -3,7 +3,7 @@
         <?php foreach ($comments as $comment): ?>
 
             <div class="comment" id="c<?php echo $comment->id; ?>">
-                <div class="post panel panel-primary">
+                <div class="post panel panel-default">
                     <div class="panel-heading">  
                         <?php
                         echo CHtml::link("#{$comment->id}", $comment->getUrl($post), array(
