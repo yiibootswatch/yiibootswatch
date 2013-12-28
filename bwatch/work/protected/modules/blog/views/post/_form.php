@@ -26,6 +26,12 @@
     </div>
 </div>  
 <div class="form-group">
+    <label class="col-lg-2 control-label"><?php echo $form->labelEx($model, 'excerpt'); ?></label>
+    <div class="col-lg-10">                                      
+        <?php echo CHtml::activeTextArea($model, 'excerpt', array('rows' => 3, 'cols' => 70, 'class' => 'form-control', 'placeholder' => 'Excerpt Content')); ?>
+    </div>
+</div> 
+<div class="form-group">
     <label class="col-lg-2 control-label"><?php echo $form->labelEx($model, 'tags'); ?></label>
     <div class="col-lg-10">
         <?php

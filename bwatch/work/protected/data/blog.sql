@@ -12,6 +12,21 @@ SET SQL_MODE='';
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 
+/*Table structure for table `tbl_assets` */
+
+CREATE TABLE `tbl_assets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(255) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `page_id` int(11) DEFAULT NULL,
+  `is_primary` tinyint(4) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_assets` */
+
 /*Table structure for table `tbl_comment` */
 
 CREATE TABLE `tbl_comment` (
@@ -51,12 +66,11 @@ insert  into `tbl_lookup`(`id`,`name`,`code`,`type`,`position`) values (1,'Draft
 
 CREATE TABLE `tbl_page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
   `display_title` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL,
   `lookup` int(11) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
   `meta_description` text,
   `meta_keywords` text,
   `parent` int(11) DEFAULT '0',
@@ -80,14 +94,16 @@ CREATE TABLE `tbl_post` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   `author_id` int(11) NOT NULL,
+  `page_id` int(11) DEFAULT NULL,
+  `sequence` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_post_author` (`author_id`),
   CONSTRAINT `FK_post_author` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tbl_post` */
 
-insert  into `tbl_post`(`id`,`title`,`content`,`excerpt`,`tags`,`status`,`create_time`,`update_time`,`author_id`) values (1,'Welcome!','This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.\n\nFeel free to try this system by writing new posts and posting comments.',NULL,'yii, blog',2,1230952187,1230952187,1),(2,'A Test Post','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',NULL,'test',2,1230952187,1230952187,1),(3,'test','test',NULL,'yii',2,1387802693,1387802693,1);
+insert  into `tbl_post`(`id`,`title`,`content`,`excerpt`,`tags`,`status`,`create_time`,`update_time`,`author_id`,`page_id`,`sequence`) values (1,'Welcome!','This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.\n\nFeel free to try this system by writing new posts and posting comments.',NULL,'yii, blog',2,1230952187,1230952187,1,NULL,NULL),(2,'A Test Post','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',NULL,'test',2,1230952187,1230952187,1,NULL,NULL),(3,'test','test',NULL,'yii',2,1387802693,1387802693,1,NULL,NULL),(4,'test excerpt','lorem','lorem ipsuam','yii',2,1388213999,1388214647,1,NULL,NULL);
 
 /*Table structure for table `tbl_tag` */
 
@@ -100,7 +116,7 @@ CREATE TABLE `tbl_tag` (
 
 /*Data for the table `tbl_tag` */
 
-insert  into `tbl_tag`(`id`,`name`,`frequency`) values (1,'yii',2),(2,'blog',1),(3,'test',1);
+insert  into `tbl_tag`(`id`,`name`,`frequency`) values (1,'yii',3),(2,'blog',1),(3,'test',1);
 
 /*Table structure for table `tbl_user` */
 

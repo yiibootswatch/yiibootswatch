@@ -13,6 +13,8 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.modules.blog.models.*',
+        'application.modules.pages.models.*',
     ),
     
     'modules' => array(        
@@ -28,6 +30,9 @@ return array(
         ),
         'blog' => array(
             'defaultController' => 'post',
+        ),
+        'pages' => array(
+            'defaultController' => 'page',
         ),
     ),
     // application components
