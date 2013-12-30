@@ -64,6 +64,7 @@ class PageController extends Controller
 	{
 		$model=new Post;
                 $model1=new Page;
+                $model2=new Assets;
 				
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -72,17 +73,12 @@ class PageController extends Controller
 			$model->attributes=$_POST['Post'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
-		}
-		if(isset($_POST['Page']))
-		{
-			$model1->attributes=$_POST['Page'];
-			if($model1->save())
-				$this->redirect(array('view','id'=>$model1->id));
-		}
+		}		
 
 		$this->render('create',array(
 			'model'=>$model,
                         'model1'=>$model1,
+                        'model2'=>$model2,
 		));
 	}
 
