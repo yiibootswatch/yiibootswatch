@@ -8,7 +8,7 @@
                     'name' => 'attachment',
                     'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
                     'duplicate' => 'Duplicate file!', // useful, i think
-                    'denied' => 'Invalid file type', // useful, i think
+                    'denied' => 'Invalid file type', // useful, i think                    
                 ));
                 ?>
             </div>

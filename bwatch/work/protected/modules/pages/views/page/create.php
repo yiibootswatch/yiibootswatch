@@ -10,7 +10,7 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => 'List Page', 'url' => array('index')),
     array('label' => 'Manage Page', 'url' => array('admin')),
-);
+); 
 ?>
 <div class="bs-docs-section">   
     <div class="row">                
@@ -26,7 +26,7 @@ $this->menu = array(
                 // There is a call to performAjaxValidation() commented in generated controller code.
                 // See class documentation of CActiveForm for details on this.
                 'enableAjaxValidation' => false,
-                'enctype' => 'multipart/form-data',
+                'htmlOptions'=>array('enctype'=>'multipart/form-data'),
             ));
             ?>
             <div class="row">
@@ -38,7 +38,7 @@ $this->menu = array(
                     <?php if (count($model->getErrors()) > 0 || count($model1->getErrors()) > 0) { ?>
                         <div class="alert alert-dismissable alert-danger">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <p><?php echo $form->errorSummary($model, $model1); ?></p> Change a few things up and try submitting again.
+                            <p><?php echo $form->errorSummary(array($model, $model1)); ?></p> Change a few things up and try submitting again.
                         </div>            
                     <?php } ?>
                 </div>     
