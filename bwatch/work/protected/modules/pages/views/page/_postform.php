@@ -25,7 +25,7 @@
                 $this->widget('CAutoComplete', array(
                     'model' => $model,
                     'attribute' => 'tags',
-                    'url' => array('suggestTags'),
+                    'url' => array('/blog/post/suggestTags'),
                     'multiple' => true,
                     'htmlOptions' => array('size' => 50, 'class' => 'form-control'),
                 ));

@@ -54,7 +54,7 @@ $this->menu = array(
                                 'active' => true
                             ),
                             array('label' => 'Properties',
-                                'content' => $this->renderPartial('_form', array('model1' => $model1, 'form' => $form), true),
+                                'content' => $this->renderPartial('_form', array('model' => $model, 'model1' => $model1, 'form' => $form), true),
                             ),
                             array('label' => 'Attachments', 
                                 'content' => $this->renderPartial('_attachmentform', array('model2' => $model2, 'form' => $form), true),

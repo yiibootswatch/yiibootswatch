@@ -16,19 +16,28 @@
             <div class="col-lg-10">
                 <?php echo $form->textField($model1, 'slug', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control', 'placeholder' => 'Slug')); ?>
             </div>
-        </div> 	
-        <div class="form-group">
-            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'lookup'); ?></label>
-            <div class="col-lg-10">
-                <?php echo $form->textField($model1, 'lookup', array('class' => 'form-control', 'placeholder' => 'Look Up')); ?>
-            </div>
-        </div> 	
+        </div> 	        
         <div class="form-group">
             <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'link'); ?></label>
             <div class="col-lg-10">
                 <?php echo $form->textField($model1, 'link', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control', 'placeholder' => 'Link')); ?>
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'parent'); ?></label>
+            <div class="col-lg-10">                                      
+                <?php 
+                
+                $model1->loadPages();
+                echo $form->textField($model1, 'parent', array('class' => 'form-control', 'placeholder' => 'Parent')); ?>
+            </div>
+        </div>        
+        <div class="form-group">
+            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'target'); ?></label>
+            <div class="col-lg-10">                                      
+                <?php echo $form->dropDownList($model1, 'target', array('0'=>'Same Window', '1'=>'New Window'), array('class' => 'form-control')); ?>                                   
+            </div>
+        </div>	
         <div class="form-group">
             <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'meta_title'); ?></label>
             <div class="col-lg-10">                                      
@@ -46,30 +55,6 @@
             <div class="col-lg-10">                                      
                 <?php echo CHtml::activeTextArea($model1, 'meta_keywords', array('rows' => 3, 'cols' => 70, 'class' => 'form-control', 'placeholder' => 'Meta Keywords')); ?>
             </div>
-        </div>	
-        <div class="form-group">
-            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'parent'); ?></label>
-            <div class="col-lg-10">                                      
-                <?php echo $form->textField($model1, 'parent', array('class' => 'form-control', 'placeholder' => 'Parent')); ?>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'position'); ?></label>
-            <div class="col-lg-10">                                      
-                <?php echo $form->textField($model1, 'position', array('class' => 'form-control', 'placeholder' => 'Position')); ?>
-            </div>
-        </div>	
-        <div class="form-group">
-            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'target'); ?></label>
-            <div class="col-lg-10">                                      
-                <?php echo $form->textField($model1, 'target', array('class' => 'form-control', 'placeholder' => 'Target')); ?>
-            </div>
-        </div>	
-        <div class="form-group">
-            <label class="col-lg-2 control-label"><?php echo $form->labelEx($model1, 'visible'); ?></label>
-            <div class="col-lg-10">                                      
-                <?php echo $form->textField($model1, 'visible', array('class' => 'form-control', 'placeholder' => 'Visible')); ?>
-            </div>
-        </div>	
+        </div>	                
     </fieldset>
 </div>  
