@@ -112,15 +112,22 @@ class Page extends CActiveRecord {
      * Loads the Page items for the specified type from the database.
      * @param string the item name
      */
-    public function loadPages() {       
-        $criteria = new CDbCriteria;
-        $criteria->condition = 'parent=0 OR parent is NULL';
+    public function loadPages() {              
+        $criteria = new CDbCriteria;        
+        $criteria->addCondition('parent=0 OR parent is NULL');  
+        $criteria->addCondition('page_id is not null or page_id!="" or page_id!=0');  
         $resmodel = Post::model()->with('page')->findAll($criteria);
+        $page_items = array();
         if($resmodel!=NULL) {
-            foreach($resmodel as $row) {
-                echo $row['display_title'];
+            foreach($resmodel as $row) {                
+                if(!empty($row['page']['display_title'])) {
+                    $page_items[$row->page_id] = $row['page']['display_title'];
+                } else {
+                    $page_items[$row->page_id] = $row['title'];
+                }
             }
         }
+        print_r($page_items);
     }
 
     /**
